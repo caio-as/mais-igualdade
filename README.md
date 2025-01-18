@@ -29,8 +29,8 @@ Se você é desenvolvedor, por favor, faça o clone desse repositório no seu co
 git clone https://github.com/caio-as/mais-igualdade.git
 ```
 
-> Faça as modificações que achar interessante;
-> Envie suas modificações via Pull request;
+> Faça as modificações que achar interessante
+> Envie suas modificações via Pull request
 > Obrigado!
 
 
