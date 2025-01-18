@@ -20,7 +20,7 @@ O site será implementado com html, css, javascript e bootstrap. Para hospedagem
 
 ## Encontrou algum bug no site?
 
-Você pode abrir uma issue aqui mesmo no repositório para reportar qualquer problema, caso não tenha conhecimento dessa ferramenta, você pode enviar um e-mail para: caio_as@yahoo.com.br
+Você pode abrir uma issue aqui mesmo no repositório para reportar qualquer problema, caso não tenha conhecimento sobre o Github, você pode enviar um e-mail para: caio_as@yahoo.com.br
 
 ## Você gostaria de contribuir com o desenvolvimento desse projeto?
 
@@ -29,7 +29,8 @@ Se você é desenvolvedor, por favor, faça o clone desse repositório no seu co
 git clone https://github.com/caio-as/mais-igualdade.git
 ```
 
-> Envie suas modificações via Pull request
+> Faça as modificações que achar interessante;
+> Envie suas modificações via Pull request;
 > Obrigado!
 
 
