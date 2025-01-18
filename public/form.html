@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Compartilhe sua História</title>
+</head>
+<body>
+  <h1>Compartilhe sua História</h1>
+  <form id="postForm">
+    <label for="title">Título:</label><br>
+    <input type="text" id="title" name="title" required><br><br>
+
+    <label for="content">Conteúdo:</label><br>
+    <textarea id="content" name="content" rows="10" cols="30" required></textarea><br><br>
+
+    <button type="submit">Enviar</button>
+  </form>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-app.js";
+    import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-firestore.js";
+
+    const firebaseConfig = {
+        apiKey: "AIzaSyDqymaWyRagRsQpFfal05urZeOmDYRizBg",
+        authDomain: "blog-mais-igualdade.firebaseapp.com",
+        projectId: "blog-mais-igualdade",
+        storageBucket: "blog-mais-igualdade.firebasestorage.app",
+        messagingSenderId: "923965411460",
+        appId: "1:923965411460:web:4f3b2b62193cbd851cf2d1",
+        measurementId: "G-QQYHSLQ5DS"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    const form = document.getElementById("postForm");
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      const title = document.getElementById("title").value;
+      const content = document.getElementById("content").value;
+
+      try {
+        const docRef = await addDoc(collection(db, "posts"), { 
+          title, 
+          content, 
+          createdAt: new Date()
+        });
+
+        window.location.href = `post.html?id=${docRef.id}`;
+      } catch (error) {
+        console.error("Erro ao enviar postagem: ", error);
+        alert("Erro ao enviar postagem. Tente novamente.");
+      }
+    });
+  </script>
+</body>
+</html>
