@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Postagem</title>
+</head>
+<body>
+  <div id="post"></div>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-app.js";
+    import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-firestore.js";
+
+    const firebaseConfig = {
+        apiKey: "AIzaSyDqymaWyRagRsQpFfal05urZeOmDYRizBg",
+        authDomain: "blog-mais-igualdade.firebaseapp.com",
+        projectId: "blog-mais-igualdade",
+        storageBucket: "blog-mais-igualdade.firebasestorage.app",
+        messagingSenderId: "923965411460",
+        appId: "1:923965411460:web:4f3b2b62193cbd851cf2d1",
+        measurementId: "G-QQYHSLQ5DS"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const postId = urlParams.get("id");
+
+    async function loadPost() {
+      const postDiv = document.getElementById("post");
+      const docRef = doc(db, "posts", postId);
+      const docSnap = await getDoc(docRef);
+
+      if (docSnap.exists()) {
+        const post = docSnap.data();
+        postDiv.innerHTML = `
+          <h1>${post.title}</h1>
+          <p>${post.content}</p>
+        `;
+      } else {
+        postDiv.innerHTML = "<p>Postagem não encontrada.</p>";
+      }
+    }
+
+    loadPost();
+  </script>
+</body>
+</html>
