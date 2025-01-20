@@ -32,7 +32,10 @@ Se você é desenvolvedor, por favor, faça o clone desse repositório no seu co
 git clone https://github.com/caio-as/mais-igualdade.git
 ```
 
-Envie suas modificações via Pull request, obrigado!
+Envie suas modificações via Pull request aqui no github;
+
+### Ou você pode criar novas tasks no JIRA:
+https://caioas.atlassian.net/jira/software/projects/BMI/boards/2
 
 
 ## Contato
